@@ -5,3 +5,35 @@
 //Apply the "heading" style in the styles.css
 //Dynamically change the color of the h1 using inline css styles.
 //Morning = red, Afternoon = green, Night = blue.
+
+import React from "react";
+import ReactDOM from "react-dom";
+
+const customStyle = {
+  color: "black"
+};
+
+const time = new Date().getDate;
+let timeOfDay = time;
+const localTime = new Date().toLocaleTimeString();
+
+if (time > 0 && time < 12) {
+  timeOfDay = "morning";
+  customStyle.color = "red";
+} else if (time >= 12 && time < 18) {
+  timeOfDay = "afternoon";
+  customStyle.color = "green";
+} else {
+  timeOfDay = "evening";
+  customStyle.color = "blue";
+}
+
+ReactDOM.render(
+  <div>
+    <h1 style={customStyle}>
+      Good {timeOfDay}, the time is {localTime}
+    </h1>
+  </div>,
+
+  document.getElementById("root")
+);
