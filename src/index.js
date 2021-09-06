@@ -10,17 +10,17 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 const customStyle = {
-  color: "black"
+  color: ""
 };
 
 const time = new Date().getDate;
 let timeOfDay = time;
 const localTime = new Date().toLocaleTimeString();
 
-if (time > 0 && time < 12) {
+if (time < 12) {
   timeOfDay = "morning";
   customStyle.color = "red";
-} else if (time >= 12 && time < 18) {
+} else if (time < 18) {
   timeOfDay = "afternoon";
   customStyle.color = "green";
 } else {
@@ -30,7 +30,7 @@ if (time > 0 && time < 12) {
 
 ReactDOM.render(
   <div>
-    <h1 style={customStyle}>
+    <h1 className="heading" style={customStyle}>
       Good {timeOfDay}, the time is {localTime}
     </h1>
   </div>,
